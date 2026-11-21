@@ -14,7 +14,7 @@
   button.on{background:#3b6fd4;border-color:#7aa2f0}
   #bottom{position:fixed;left:10px;bottom:10px;max-width:470px;display:flex;flex-direction:column;gap:6px}
   #hint{font-size:13px;color:#8ea3c4;pointer-events:none;padding-left:2px;text-shadow:0 1px 3px #000}
-  #info{background:rgba(11,18,32,.86);border:1px solid #2a3a58;border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.45}
+  #info{display:none;max-height:42vh;overflow:auto;max-width:560px;background:rgba(11,18,32,.86);border:1px solid #2a3a58;border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.45}
   #info b{color:#9cc2ff}
   #legend{position:fixed;right:10px;bottom:10px;background:rgba(11,18,32,.86);border:1px solid #2a3a58;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.6}
   .sw{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:7px;vertical-align:-1px}
@@ -31,6 +31,7 @@
   <button id="see">See-through boosters</button>
   <button id="spin" class="on">Camera turn</button>
   <button id="spinship" style="display:none">Spin the ship</button>
+  <button id="infobtn">About this view</button>
 </div>
 <div id="bottom"><div id="hint">The view turns by itself (Camera turn stops it); drag to turn it yourself, scroll or pinch to zoom, right-drag to slide.</div>
 <div id="info"><b>Launch configuration, new hull.</b> The ship is two near-identical halves docked nose to nose, each a 7.9 m by 8 m barrel and a cone, with a 2 m straight waist between them (21.7 m overall; each half rides a Starship's payload bay, about 10.8 m long). The solar arrays are folded flat (one row of panels above and below), centred on the waist and carried on short stub axles. The crew compartment is bolted to the aft face of the hull on a mounting plate, inside the ring of 12 boosters, with its two hydrazine tanks (dark) and four small thrusters (orange, two pairs) mounted where the first and second decks meet, level with the heavy storm room's weight. The six methalox engines are fixed on rectangular struts, 0.9 m (3 ft) by 0.3 m (1 ft) and 1.5 m (5 ft) long, that reach out between the boosters, each with its nozzle pointing aft. The gimbals are taken to be inside the struts and are not drawn. White double-faced radiators are drawn (two 3 m by 3 m fins on the top hull near the middle ring, and two trays beside the storm room); their covers for the burn are not.</div></div>
@@ -384,5 +385,6 @@ requestAnimationFrame(frame);
 window.__state=applyState; window.__spin=function(on,ph){ setSpin(on); if(ph!==undefined){phi=ph; applyShipSpin();} }; window.__preset=setPreset; window.__see=function(v){ seeThrough=v; applySee(); };
 })();
 </script>
+<script>(function(){var b=document.getElementById("infobtn"),i=document.getElementById("info");b.onclick=function(){var o=i.style.display==="block";i.style.display=o?"none":"block";b.classList.toggle("on",!o);};})();</script>
 </body>
 </html>
